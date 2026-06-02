@@ -1,37 +1,40 @@
 <!--
   ╔══════════════════════════════════════════════════════════════╗
-  ║              SPONSOR DAY — GUÍA DE DEPLOYMENT                ║
+  ║              SPONSOR DAY — GUÍA DE DEPLOYMENT               ║
   ║                                                              ║
-  ║  ESTRUCTURA DE CARPETAS EN EL REPOSITORIO:                   ║
+  ║  ESTRUCTURA DE CARPETAS EN EL REPOSITORIO:                  ║
   ║                                                              ║
   ║  /                                                           ║
-  ║  ├── index.html          ← este archivo                      ║
+  ║  ├── index.html          ← este archivo                     ║
   ║  └── assets/                                                 ║
   ║      ├── logos/                                              ║
-  ║      │   ├── ds-racing-kart.png   ← logo DS Racing Kart      ║
-  ║      │   └── am-engineering.png   ← logo AM Engineering      ║
+  ║      │   ├── ds-racing-kart.png   ← logo DS Racing Kart     ║
+  ║      │   └── am-engineering.png   ← logo AM Engineering     ║
   ║      ├── trazados/                                           ║
-  ║      │   ├── gualeguay.png        ← trazado circuito         ║
-  ║      │   ├── baradero.png                                    ║
-  ║      │   ├── ciudad-evita.png                                ║
-  ║      │   ├── buenos-aires.png                                ║
-  ║      │   └── zarate.png                                      ║
+  ║      │   ├── gualeguay.png        ← trazado circuito        ║
+  ║      │   ├── baradero.png                                   ║
+  ║      │   ├── ciudad-evita.png                               ║
+  ║      │   ├── buenos-aires.png                               ║
+  ║      │   └── zarate.png                                     ║
   ║      └── fotos/                                              ║
-  ║          ├── testimonio-1.jpg     ← foto participante 1      ║
-  ║          ├── testimonio-2.jpg     ← foto participante 2      ║
-  ║          ├── testimonio-3.jpg     ← foto participante 3      ║
-  ║          ├── hero-portada.jpg                                ║
-  ║          ├── about-misil.jpg                                 ║
-  ║          └── adrenalina-pista.jpg                            ║
+  ║          ├── hero-portada.jpg                               ║
+  ║          ├── about-misil.jpg                                ║
+  ║          ├── adrenalina-pista.jpg                           ║
+  ║          ├── testimonio-1.jpg                               ║
+  ║          ├── testimonio-2.jpg                               ║
+  ║          ├── testimonio-3.jpg                               ║
+  ║          └── galeria/                                       ║
+  ║              ├── foto-1.jpg  (hasta foto-5.jpg)             ║
+  ║              └── ...más fotos que agregues                  ║
   ║                                                              ║
   ║  Para activar GitHub Pages:                                  ║
-  ║  Settings → Pages → Branch: main → Folder: / (root)          ║
+  ║  Settings → Pages → Branch: main → Folder: / (root)         ║
   ║  URL final: https://FrancoGagliardiRacing.github.io/fgr      ║
   ║                                                              ║
   ║  PENDIENTE COMPLETAR EN EL CÓDIGO:                           ║
-  ║  - URL DS Racing Kart (buscar: PEGAR URL ACÁ: DS Racing)     ║
-  ║  - URL AM Engineering (buscar: PEGAR URL ACÁ: AM Eng)        ║
-  ║  - URL AM Media footer (buscar: PEGAR URL ACÁ: AM Media)     ║
+  ║  - URL DS Racing Kart (buscar: PEGAR URL ACÁ: DS Racing)    ║
+  ║  - URL AM Engineering (buscar: PEGAR URL ACÁ: AM Eng)       ║
+  ║  - URL AM Media footer (buscar: PEGAR URL ACÁ: AM Media)    ║
   ╚══════════════════════════════════════════════════════════════╝
 -->
 <!DOCTYPE html>
@@ -152,11 +155,7 @@
     display: block;
     object-fit: contain;
   }
-  .partner-divider {
-    width: 1px;
-    height: 50px;
-    background: rgba(26,16,8,0.12);
-  }
+  .partner-divider { display: none; }
 
 
   /* ─── CIRCUIT ITEMS con trazado ─── */
@@ -302,6 +301,25 @@
   }
   .modal-btn-send:hover { background: #ff6a22; }
 
+
+  .nav-logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.2s;
+  }
+  .nav-logo-img:hover { opacity: 0.8; }
+  /* Ocultar estilos del logo anterior */
+  .logo-icon { display: none; }
+
+
+  /* ─── CONTACTO: forzar tipografía clara ─── */
+  #contacto .section-title { color: var(--white) !important; }
+  #contacto .section-eyebrow { color: var(--orange) !important; }
+  #contacto .contacto-left p { color: var(--gray-light) !important; }
+
   /* ─── NOISE OVERLAY ─── */
   body::before {
     content: '';
@@ -417,7 +435,7 @@
     position: absolute;
     inset: 0;
     background:
-      url('assets/fotos/hero-portada.jpg') center/cover no-repeat; -- V1.1
+      url('assets/fotos/hero-portada.jpg') center/cover no-repeat;
     z-index: 1;
     transform: scale(1.05);
     animation: heroZoom 12s ease-in-out infinite alternate;
@@ -527,34 +545,7 @@
     transition: color 0.2s, border-color 0.2s;
   }
   .btn-ghost:hover { color: var(--orange); border-color: var(--orange); }
-  .hero-stats {
-    position: absolute;
-    bottom: 80px; right: 60px;
-    z-index: 4;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    opacity: 0;
-    animation: fadeUp 0.8s 1s forwards;
-  }
-  .hero-stat {
-    text-align: right;
-  }
-  .hero-stat-value {
-    font-family: 'Racing Sans One', cursive;
-    font-size: 34px;
-    color: var(--cyan);
-    letter-spacing: 0.03em;
-    line-height: 1;
-  }
-  .hero-stat-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
+  /* hero-stats removido */
   .hero-scroll-hint {
     position: absolute;
     bottom: 12px; left: 50%;
@@ -758,13 +749,17 @@
     overflow: hidden;
     background: url('assets/fotos/adrenalina-pista.jpg') center/cover;
     min-height: 460px;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
   }
   .adrenalina-visual::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent 50%, var(--dark-mid) 100%),
-                linear-gradient(to bottom, transparent 30%, rgba(13,13,13,0.4) 100%);
+    background: linear-gradient(to right, transparent 40%, var(--dark-mid) 95%),
+                linear-gradient(to bottom, transparent 60%, rgba(13,13,13,0.2) 100%);
   }
   .adrenalina-visual-label {
     position: absolute;
@@ -913,14 +908,14 @@
     align-items: center;
     gap: 16px;
     padding: 18px 20px;
-    background: rgba(26,16,8,0.04);
+    background: rgba(26,16,8,0.35);
     border-left: 2px solid transparent;
     transition: border-color 0.2s, background 0.2s;
     cursor: default;
   }
   .circuit-item:hover {
     border-left-color: var(--orange);
-    background: rgba(232,81,10,0.10);
+    background: rgba(232,81,10,0.25);
   }
   .circuit-dot {
     width: 8px; height: 8px;
@@ -934,11 +929,11 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-on-beige);
+    color: var(--white);
   }
   .circuit-region {
     font-size: 12px;
-    color: var(--text-muted-beige);
+    color: rgba(245,245,220,0.6);
     letter-spacing: 0.1em;
     margin-left: auto;
     text-transform: uppercase;
@@ -1597,7 +1592,6 @@
     .nav-hamburger { display: block; }
     .section-inner { padding: 0 24px; }
     .hero-content { padding: 0 24px 80px; }
-    .hero-stats { display: none; }
     .hero-checker { width: 60px; }
     .about-grid,
     .adrenalina-layout,
@@ -1638,8 +1632,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-    <div class="logo-icon">FG</div>
-    <div><span>SPONSOR</span> DAY</div>
+    <img src="assets/logos/logo-franco-gagliardi.png" alt="Franco Gagliardi Racing" class="nav-logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="#about">La experiencia</a></li>
@@ -1648,7 +1641,6 @@
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="#contacto" class="nav-cta">Reservar lugar</a>
   <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
 </nav>
 
@@ -1669,20 +1661,7 @@
       <a href="#about" class="btn-ghost">Conocer más →</a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-value">120</div>
-      <div class="hero-stat-label">km/h máximos</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-value">30HP</div>
-      <div class="hero-stat-label">Motor Rotax 125cc</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-value">+2.5G</div>
-      <div class="hero-stat-label">Fuerza lateral</div>
-    </div>
-  </div>
+
   <div class="hero-scroll-hint">
     <span>Scroll</span>
     <div class="scroll-line"></div>
@@ -1729,11 +1708,16 @@
               <img src="assets/logos/ds-racing-kart.png" alt="DS Racing Kart" title="DS Racing Kart">
             </a>
           </div>
-          <div class="partner-divider"></div>
           <div class="partner-logo-wrap">
             <span class="partner-label">Organización</span>
             <a href="<!-- PEGAR URL ACÁ: AM Engineering -->" target="_blank" rel="noopener" class="partner-logo-link">
               <img src="assets/logos/am-engineering.png" alt="AM Engineering" title="AM Engineering">
+            </a>
+          </div>
+          <div class="partner-logo-wrap">
+            <span class="partner-label">La máxima protección</span>
+            <a href="<!-- PEGAR URL ACÁ: Mr Detail -->" target="_blank" rel="noopener" class="partner-logo-link">
+              <img src="assets/logos/mr-detail.png" alt="Mr Detail" title="Mr Detail">
             </a>
           </div>
         </div>
@@ -1743,7 +1727,6 @@
         <div class="about-img-wrap">
           <img src="assets/fotos/about-misil.jpg" alt="Piloto de karting profesional" loading="lazy">
           <div class="about-img-overlay"></div>
-          <div class="about-img-badge"><span>Experiencia Premium</span></div>
         </div>
       </div>
     </div>
@@ -1834,8 +1817,7 @@
 <!-- FRANCO STRIP -->
 <div class="franco-strip reveal">
   <div class="franco-strip-inner">
-    <div class="franco-strip-num">#511</div>
-    <div class="franco-strip-content">
+    <div class="franco-strip-content" style="grid-column:1/-1;">
       <div class="franco-strip-title">ACOMPAÑADOS DE LOS QUE SABEN</div>
       <p class="franco-strip-text">Sumándote a este día me ayudás a seguir bancando la temporada Rotax y poder seguir compitiendo al <strong>más alto nivel de Argentina</strong>. Juntos hacemos crecer el deporte que amamos.</p>
     </div>
@@ -1924,6 +1906,13 @@
               </div>
             </div>
             <div class="horario-item">
+              <div class="horario-time">12:15</div>
+              <div class="horario-info">
+                <div class="horario-title">Segunda Sesión</div>
+                <div class="horario-sub">Más vueltas, más velocidad, mejor performance</div>
+              </div>
+            </div>
+            <div class="horario-item">
               <div class="horario-time">13:30</div>
               <div class="horario-info">
                 <div class="horario-title">Análisis y Almuerzo</div>
@@ -1931,10 +1920,10 @@
               </div>
             </div>
             <div class="horario-item">
-              <div class="horario-time">15:00</div>
+              <div class="horario-time">15:30</div>
               <div class="horario-info">
-                <div class="horario-title">Segunda Sesión</div>
-                <div class="horario-sub">Más vueltas, más velocidad, mejor performance</div>
+                <div class="horario-title">🏆 Qualy — Tiempos y Premios</div>
+                <div class="horario-sub">Vueltas cronometradas · Competencia por merchandising oficial</div>
               </div>
             </div>
           </div>
@@ -2068,6 +2057,13 @@
         <a href="#contacto" class="faq-contact-link">Consultar directamente →</a>
       </div>
       <div class="faq-list reveal reveal-delay-2">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">⚠️ El que rompe, paga — ¿cómo funciona?</span>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-answer"><p>Al participar del Sponsor Day, cada piloto asume plena responsabilidad por los daños que cause al karting durante la experiencia. En caso de accidente o mal uso del vehículo que resulte en la rotura del mismo, el participante deberá hacerse cargo del costo de reparación, sin excepción y sin importar las circunstancias del incidente. Esta condición es parte esencial de la experiencia y es aceptada al momento de confirmar la reserva.</p></div>
+        </div>
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-question-text">¿Necesito experiencia previa en karting?</span>
