@@ -1,34 +1,37 @@
 <!--
   ╔══════════════════════════════════════════════════════════════╗
-  ║              SPONSOR DAY — GUÍA DE DEPLOYMENT               ║
+  ║              SPONSOR DAY — GUÍA DE DEPLOYMENT                ║
   ║                                                              ║
-  ║  ESTRUCTURA DE CARPETAS EN EL REPOSITORIO:                  ║
+  ║  ESTRUCTURA DE CARPETAS EN EL REPOSITORIO:                   ║
   ║                                                              ║
   ║  /                                                           ║
-  ║  ├── index.html          ← este archivo                     ║
+  ║  ├── index.html          ← este archivo                      ║
   ║  └── assets/                                                 ║
   ║      ├── logos/                                              ║
-  ║      │   ├── ds-racing-kart.png   ← logo DS Racing Kart     ║
-  ║      │   └── am-engineering.png   ← logo AM Engineering     ║
+  ║      │   ├── ds-racing-kart.png   ← logo DS Racing Kart      ║
+  ║      │   └── am-engineering.png   ← logo AM Engineering      ║
   ║      ├── trazados/                                           ║
-  ║      │   ├── gualeguay.png        ← trazado circuito        ║
-  ║      │   ├── baradero.png                                   ║
-  ║      │   ├── ciudad-evita.png                               ║
-  ║      │   ├── buenos-aires.png                               ║
-  ║      │   └── zarate.png                                     ║
+  ║      │   ├── gualeguay.png        ← trazado circuito         ║
+  ║      │   ├── baradero.png                                    ║
+  ║      │   ├── ciudad-evita.png                                ║
+  ║      │   ├── buenos-aires.png                                ║
+  ║      │   └── zarate.png                                      ║
   ║      └── fotos/                                              ║
-  ║          ├── testimonio-1.jpg     ← foto participante 1     ║
-  ║          ├── testimonio-2.jpg     ← foto participante 2     ║
-  ║          └── testimonio-3.jpg     ← foto participante 3     ║
+  ║          ├── testimonio-1.jpg     ← foto participante 1      ║
+  ║          ├── testimonio-2.jpg     ← foto participante 2      ║
+  ║          ├── testimonio-3.jpg     ← foto participante 3      ║
+  ║          ├── hero-portada.jpg                                ║
+  ║          ├── about-misil.jpg                                 ║
+  ║          └── adrenalina-pista.jpg                            ║
   ║                                                              ║
   ║  Para activar GitHub Pages:                                  ║
-  ║  Settings → Pages → Branch: main → Folder: / (root)         ║
+  ║  Settings → Pages → Branch: main → Folder: / (root)          ║
   ║  URL final: https://FrancoGagliardiRacing.github.io/fgr      ║
   ║                                                              ║
   ║  PENDIENTE COMPLETAR EN EL CÓDIGO:                           ║
-  ║  - URL DS Racing Kart (buscar: PEGAR URL ACÁ: DS Racing)    ║
-  ║  - URL AM Engineering (buscar: PEGAR URL ACÁ: AM Eng)       ║
-  ║  - URL AM Media footer (buscar: PEGAR URL ACÁ: AM Media)    ║
+  ║  - URL DS Racing Kart (buscar: PEGAR URL ACÁ: DS Racing)     ║
+  ║  - URL AM Engineering (buscar: PEGAR URL ACÁ: AM Eng)        ║
+  ║  - URL AM Media footer (buscar: PEGAR URL ACÁ: AM Media)     ║
   ╚══════════════════════════════════════════════════════════════╝
 -->
 <!DOCTYPE html>
@@ -414,7 +417,7 @@
     position: absolute;
     inset: 0;
     background:
-      url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80') center/cover no-repeat;
+      url('assets/fotos/hero-portada.jpg') center/cover no-repeat; -- V1.1
     z-index: 1;
     transform: scale(1.05);
     animation: heroZoom 12s ease-in-out infinite alternate;
@@ -753,7 +756,7 @@
   .adrenalina-visual {
     position: relative;
     overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=80') center/cover;
+    background: url('assets/fotos/adrenalina-pista.jpg') center/cover;
     min-height: 460px;
   }
   .adrenalina-visual::after {
@@ -1738,7 +1741,7 @@
       <div class="about-right reveal reveal-delay-2">
         <div class="about-corner"></div>
         <div class="about-img-wrap">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" alt="Piloto de karting profesional" loading="lazy">
+          <img src="assets/fotos/about-misil.jpg" alt="Piloto de karting profesional" loading="lazy">
           <div class="about-img-overlay"></div>
           <div class="about-img-badge"><span>Experiencia Premium</span></div>
         </div>
